@@ -1,0 +1,17 @@
+version: '3'
+networks:
+  local-network:
+    driver: bridge
+services:
+  dropbox_clone:
+    image: kitties-backend
+    container_name: kitties-backend
+    build:
+      context: /Users/harshitruwali/Developer/kitties-backend
+      dockerfile: /Users/harshitruwali/Developer/kitties-backend/Dockerfile
+    tty: true
+    networks:
+      - local-network
+    stdin_open: true
+    ports:
+      - "3000:3000"
